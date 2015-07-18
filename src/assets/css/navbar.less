@@ -1,0 +1,49 @@
+.navbar {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding: 100px;
+  color: white;
+  h3 {
+    display: block;
+    float: right;
+    width: 100%;
+    text-align: center;
+    font-family: calibri;
+    font-size: 130px;
+  }
+  .menu-container {
+    display: block;
+    float: right;
+    width: 100%;
+    .menu {
+      display: block;
+      width: 750px;
+      margin: 0 auto;
+      list-style: none;
+      border-top: 5px solid white;
+      li {
+        display: inline-block;
+        float: right;
+        width: 150px;
+        text-align: right;
+        &:last-child {
+          text-align: left;
+        }
+        a {
+          color: #ABABAB;
+          text-decoration: none;
+          font-size: 23px;
+          .hasTransition(0.2s);
+          &.active {
+            color: white;
+            font-family: iransansbold;
+          }
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
