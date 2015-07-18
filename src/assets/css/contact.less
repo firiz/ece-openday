@@ -4,3 +4,14 @@
   overflow: hidden;
   height: 500px;
 }
+@media screen and (max-width: @maxWidthLarge) {
+  .map-canvas {
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: @maxWidthSmall) {
+  .map-canvas {
+    height: 300px;
+  }
+}
