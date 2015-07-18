@@ -1,19 +1,20 @@
 .section-color(@color) {
   background-color: @color;
-  &::before, &::after {
+  &::before,
+  &::after {
     background-color: @color;
   }
 }
-
 .section {
   display: block;
   width: 100%;
   color: white;
   &:nth-child(odd) {
-    padding: 50px 0 80px 0;
+    padding: 50px 0 80px;
   }
   &:nth-child(even) {
-    &::before, &::after {
+    &::before,
+    &::after {
       content: '';
       position: relative;
       top: -50px;
@@ -48,8 +49,11 @@
     }
   }
   &.full {
-    padding: 0px;
-    height: 700px;
+    padding: 0;
+    height: 500px;
+    &.large {
+      height: 700px;
+    }
   }
   &.pink {
     .section-color(@pink);
@@ -65,18 +69,5 @@
   }
   &.green {
     .section-color(@green);
-  }
-  h3 {
-    float: right;
-    direction: rtl;
-    font-family: iransansbold;
-    color: white;
-  }
-  p {
-    float: right;
-    direction: rtl;
-    text-align: justify;
-    font-family: iransanslight;
-    color: white;
   }
 }

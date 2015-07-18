@@ -1,12 +1,29 @@
-window.sr = new scrollReveal();
 $(document).ready(function() {
-  $('.slider').unslider({
-    speed: 500, //  The speed to animate each slide (in milliseconds)
-    delay: 3000, //  The delay between slide animations (in milliseconds)
-    keys: false, //  Enable keyboard (left, right) arrow shortcuts
-    dots: true, //  Display dot navigation
-    fluid: true
+	$('.slider').unslider({
+		speed: 500, //  The speed to animate each slide (in milliseconds)
+		delay: 3000, //  The delay between slide animations (in milliseconds)
+		keys: false, //  Enable keyboard (left, right) arrow shortcuts
+		dots: true, //  Display dot navigation
+		fluid: true
+	});
+
+	window.sr = new scrollReveal();
+
+	var mapCanvas = document.getElementById('map-canvas');
+  var latLng = new google.maps.LatLng(35.724892, 51.386467);
+	var mapOptions = {
+		center: latLng,
+		zoom: 18,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false
+	};
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      title: 'دانشکده مهندسی برق و کامپیوتر'
   });
+
 	/*$(window).scroll(function () {
 	  var currentDiv;
 	  $('section.section').each(function () {
@@ -39,78 +56,19 @@ $(document).ready(function() {
 	    ga('send', 'event', 'navigation', 'contact');
 	  }
 	});
+  */
 
-	$('ul.navigation li, a#aa-education').click(function (e) {
-	  e.preventDefault();
-	  var divId = $(this).attr('id').substring(3);
-	  if ($(this).attr('id') === 'aa-education' || $('ul.navigation').height() !== 50 || $('ul.navigation').hasClass('open')) {
-	    $('ul.navigation').removeClass('open');
-
-	    if (divId === 'contact') {
-	      $('html, body').animate({
-	        scrollTop: $(document).height()
-	      }, 500); //$(document).height() - $(window).scrollTop()
-	    } else {
-	      var div = $('section.section#' + divId);
-	      if (div) {
-	        $('html, body').animate({
-	          scrollTop: div.position().top + 1
-	        }, 500); //Math.abs(div.position().top + 1 - $(window).scrollTop())
-	      }
-	    }
-	  } else {
-	    $('ul.navigation').addClass('open');
-	  }
+	$('.menu li a').click(function(e) {
+		e.preventDefault();
+		$('.menu li a').removeClass('active');
+		$(this).addClass('active');
+		var divId = $(this).attr('id').substring(2);
+		var div = $('section.section#' + divId);
+		if (div) {
+			$('html, body').animate({
+				scrollTop: div.position().top + 1
+			}, 500); //Math.abs(div.position().top + 1 - $(window).scrollTop())
+		}
 	});
 
-	$('a.section-title-info-button').mouseenter(function (e) {
-	  var button = $(this);
-	  var infoWrapper = button.parent().parent().children('div.section-title-info-wrapper');
-	  button.addClass('open');
-	  infoWrapper.addClass('open');
-	});
-
-	$('a.section-title-info-button').mouseleave(function (e) {
-	  var button = $(this);
-	  var infoWrapper = button.parent().parent().children('div.section-title-info-wrapper');
-	  button.removeClass('open');
-	  infoWrapper.removeClass('open');
-	});
-
-	$('a.section-title-info-button').click(function (e) {
-	  e.preventDefault();
-	});
-
-	$('#contact-form').submit(function (e) {
-	  e.preventDefault();
-	  var button = $('#contact-form div.input-wrapper button');
-	  button.html('Sending...');
-	  button.attr('disabled', true);
-	  $.ajax({
-	    url: 'contact.php',
-	    type: 'post',
-	    data: $('#contact-form').serialize(),
-	    success: function (data) {
-	      $('#contact-form div.input-wrapper input').val('');
-	      $('#contact-form div.input-wrapper textarea').val('');
-	      button.html('Thanks!');
-	    },
-	    error: function () {
-	      button.html('Try again');
-	      button.attr('disabled', false);
-	    }
-	  });
-	});
-
-	$('div.button').click(function (e) {
-	  var button = $(this);
-	  var moreLis = button.parent().parent().children('li.more');
-	  if (button.children('p')[0].innerHTML === 'More...') {
-	    moreLis.css('display', 'block');
-	    button.children('p')[0].innerHTML = 'Less...';
-	  } else {
-	    moreLis.css('display', 'none');
-	    button.children('p')[0].innerHTML = 'More...';
-	  }
-	});*/
 });
