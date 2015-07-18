@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'iransanslight';
+  src: url('../fonts/iransanslight.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iransansbold';
+  src: url('../fonts/iransansbold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hasTransition(@time) {
+  -webkit-transition: all @time ease-in-out;
+  -moz-transition: all @time ease-in-out;
+  -o-transition: all @time ease-in-out;
+  transition: all @time ease-in-out;
+}
+
+.hasTransitionSpecific(@type, @time) {
+  -webkit-transition: @type @time ease-in-out;
+  -moz-transition: @type @time ease-in-out;
+  -o-transition: @type @time ease-in-out;
+  transition: @type @time ease-in-out;
+}
+
+/* Setup */
+* {
+  font-family: iransanslight;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  padding: 0;
+  margin: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
