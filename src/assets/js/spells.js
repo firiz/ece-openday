@@ -24,14 +24,6 @@ $(document).ready(function() {
 		title: 'دانشکده مهندسی برق و کامپیوتر'
 	});
 
-	var $body = $(document);
-	$body.bind('scroll', function() {
-		// "Disable" the horizontal scroll.
-		if ($body.scrollLeft() !== 0) {
-			$body.scrollLeft(0);
-		}
-	});
-
 	$('.menu li a').click(function(e) {
 		e.preventDefault();
 		$('.menu li a').removeClass('active');
