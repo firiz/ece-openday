@@ -13,7 +13,7 @@ $(document).ready(function() {
 	var latLng = new google.maps.LatLng(35.724892, 51.386467);
 	var mapOptions = {
 		center: latLng,
-		zoom: 18,
+		zoom: 15,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		scrollwheel: false
 	};
@@ -36,5 +36,4 @@ $(document).ready(function() {
 			}, 500); //Math.abs(div.position().top + 1 - $(window).scrollTop())
 		}
 	});
-
 });

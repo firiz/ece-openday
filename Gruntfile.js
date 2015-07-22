@@ -9,6 +9,7 @@ module.exports = function (grunt) {
       dist: {
         src: [
           "src/assets/js/jquery-2.1.1.min.js",
+          "src/assets/js/jquery.mask.min.js",
           "src/assets/js/scrollReveal.js",
           "src/assets/js/unslider.min.js",
           "src/assets/js/spells.js",
