@@ -1,0 +1,23 @@
+.footer {
+  float: right;
+  width: 100%;
+  display: block;
+  background-color: @darkGrey;
+  color: @mediumGrey;
+  p {
+    float: right;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  a {
+    text-decoration: none;
+    color: @mediumGrey;
+    .hasTransition(0.25s);
+
+    &:hover {
+      color: @grey;
+    }
+  }
+}
